@@ -1,0 +1,17 @@
+{
+  "name": "infinite-canvas-core",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "fmt": "oxfmt"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.74.0",
+    "typescript": "~7.1.0-beta",
+    "vite": "^8.3.4"
+  }
+}
