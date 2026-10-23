@@ -4,6 +4,14 @@ A zero-dependency 2D infinite canvas engine built from scratch with TypeScript a
 
 ---
 
+## Preview
+
+|       Infinite Canvas & Marquee Selection        |     QuadTree Spatial Partitioning (Debug Mode)     |
+| :----------------------------------------------: | :------------------------------------------------: |
+| ![Canvas Preview](src/assets/preview-canvas.png) | ![QuadTree Debug](src/assets/preview-quadtree.png) |
+
+---
+
 ## Features
 
 - **Infinite Coordinate Space**: Smooth panning and pointer-anchored zooming using 2D affine transform matrices.
