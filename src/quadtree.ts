@@ -22,16 +22,21 @@ export function rectContainsPoint(r: Rect, px: number, py: number): boolean {
 }
 
 export class QuadTree {
+  public bounds: Rect
+  public capacity: number
+  public maxDepth: number
+  public depth: number
+
   private shapes: Shape[] = []
   private children: QuadTree[] | null = null
-  private static globalQueryId = 0 // 全局递增查询 ID
+  private static globalQueryId = 0
 
-  constructor(
-    public bounds: Rect,
-    public capacity: number = 16,
-    public maxDepth: number = 8,
-    public depth: number = 0,
-  ) {}
+  constructor(bounds: Rect, capacity: number = 16, maxDepth: number = 8, depth: number = 0) {
+    this.bounds = bounds
+    this.capacity = capacity
+    this.maxDepth = maxDepth
+    this.depth = depth
+  }
 
   // 插入图元
   insert(shape: Shape): boolean {
@@ -173,5 +178,32 @@ export class QuadTree {
         this.children[i].drawDebug(ctx, viewBounds, scale)
       }
     }
+  }
+
+  remove(shape: Shape): boolean {
+    // 利用当前图元的包围盒做剪枝
+    if (!rectIntersects(this.bounds, shape)) {
+      return false
+    }
+
+    let removed = false
+
+    // 1. 尝试从当前节点的 shapes 中移除
+    const index = this.shapes.findIndex((s) => s.id === shape.id)
+    if (index !== -1) {
+      this.shapes.splice(index, 1)
+      removed = true
+    }
+
+    // 2. 递归从子象限中移除（跨边界图元可能被多个子象限索引）
+    if (this.children) {
+      for (let i = 0; i < 4; i++) {
+        if (this.children[i].remove(shape)) {
+          removed = true
+        }
+      }
+    }
+
+    return removed
   }
 }
