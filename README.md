@@ -1,5 +1,17 @@
 # infinite-canvas-core
 
+> **Moved to [Frontend Labs — Infinite Canvas](https://github.com/ieuforu/frontend-labs/tree/main/labs/infinite-canvas).**
+>
+> Active development, documentation, tests, and issue tracking now live in [ieuforu/frontend-labs](https://github.com/ieuforu/frontend-labs). This repository is retained as a historical snapshot.
+>
+> All five original commits, including their authors, timestamps, and SHAs, are preserved in the destination repository. See the [migration record](https://github.com/ieuforu/frontend-labs/blob/main/docs/migration.md#infinite-canvas2026-11-02).
+>
+> To run the current experiment, clone `frontend-labs`, run `pnpm install --frozen-lockfile`, then `pnpm dev:canvas`.
+
+---
+
+The content below describes the original standalone demo. For current behavior and limitations, use the [maintained README](https://github.com/ieuforu/frontend-labs/blob/main/labs/infinite-canvas/README.md).
+
 A zero-dependency 2D infinite canvas engine built from scratch with TypeScript and HTML5 Canvas, featuring affine viewport transforms, QuadTree spatial indexing, frustum culling, and marquee multi-selection.
 
 ---
